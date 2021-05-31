@@ -26,7 +26,7 @@ class Stack {
   // 배열의 길이가 0 이면, 배열 [0]에 item 할당
   // 0보다 크다면 배열의 길이의 인덱스에 item 할당.
   push(item) {
-    if (this.stack.length === 0) {
+    if (!this.stack.length) {
       this.stack[0] = item;
     } else {
       this.stack[this.stack.length] = item;
@@ -38,7 +38,7 @@ class Stack {
   // 그리고 배열의 길이를 -1만큼 감소
   // result 리턴
   pop() {
-    if (this.stack.length === 0) {
+    if (!this.stack.length) {
       return `${-1}\n`;
     }
     let result = `${this.stack[this.stack.length - 1]}\n`;
@@ -54,12 +54,12 @@ class Stack {
   // 스택의 길이가 0이면 비어있는 경우 이기에 삼항 연산자를 써서
   // 배열의 길이가 0과 같다면 1, 아니면 0 리턴
   empty() {
-    return this.stack.length === 0 ? `${1}\n` : `${0}\n`;
+    return !this.stack.length ? `${1}\n` : `${0}\n`;
   }
 
   // 가장 나중에 있는 인덱스 값 출력. 스택에 정수가 없는 경우 -1을 리턴
   top() {
-    return this.stack.length === 0
+    return !this.stack.length 
       ? `${-1}\n`
       : `${this.stack[this.stack.length - 1]}\n`;
   }
