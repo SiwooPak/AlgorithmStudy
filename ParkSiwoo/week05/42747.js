@@ -5,17 +5,17 @@
 // 다시 말하여, 이 연구원은 논문 인용횟수가 10이 넘는 논문이 적어도 10편이 된다는 것을 의미합니다.
 
 function solution(citations) {
-    let answer = 0;
+    // 인용횟수를 담은 배열의 길이
     let len = citations.length;
+    // 그 배열의 요소를 오름차순 정렬
     let sortedCiations = citations.sort((a,b) => a-b);
     
+    // 그 배열의 길이까지 반복해서 요소의 값이 h-index 크거나 같을 경우 리턴
     for(let i=0; i<len; i++) {
         let h_index = len - i;
-        if(sortedCiations[i] >= h_index) {
-            answer = h_index;
-            break;
-        }
+        if(sortedCiations[i] >= h_index) return h_index;
     }
-    
-    return answer;
+    // h-index가 없는 경우 0 리턴
+    return 0;
 }
+console.log(solution([3,0,6,1,5]));

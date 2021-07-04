@@ -5,18 +5,7 @@
 // 정렬한 다음에 index의 요소를 리턴.
 
 function solution(array, commands) {
-    //var answer = [];
-    // for(let command of commands) {
-    //     let [start,end,index] = command;
-    //     answer.push(array.slice(start-1,end).sort((a,b) => a - b)[index-1]);
-    // } 
     
-    // commands.forEach(command => {
-    //     const [start,end,index] = command;
-    //     let sortedSliceArr = array.slice(start-1,end).sort((a,b) => a-b);
-    //     answer.push(sliceArr[index-1]);
-    // })
-
     let answer = commands.map(command => {
         const [start,end,index] = command;
         let sliceArr = array.slice(start-1,end).sort((a,b) => a-b);
