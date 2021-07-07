@@ -10,7 +10,8 @@ let stack = [];
 let result = '';
 
 input.map((el) => {
- 
+  let cmd = el.split(' ');
+
   let push = (value) =>
     !stack.length ? (stack[0] = value) : (stack[stack.length] = value);
   let pop = function () {
@@ -24,8 +25,6 @@ input.map((el) => {
   let size = () => `${stack.length}\n`;
   let empty = () => (!stack.length ? `${1}\n` : `${0}\n`);
   let top = () => (!stack.length ? `${-1}\n` : `${stack[stack.length - 1]}\n`);
-
-  let cmd = el.split(' ');
 
   switch (cmd[0]) {
     case 'push':

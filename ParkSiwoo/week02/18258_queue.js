@@ -18,9 +18,7 @@ const rl = readline.Interface({
 
 class Node {
   constructor(value) {
-    //노드가 저장하는 값
     this.value = value;
-    //대기열의 다음 노드에 대한 링크. 처음엔 노드가 없기에 null
     this.next = null;
   }
 }
@@ -35,18 +33,14 @@ class Queue {
   enqueue(value) {
     const node = new Node(value);
 
-    if (this.first) { // 첫번째 노드가 있는 경우
-      // last(rear) 뒤에 생성된 노드를 추가
+    if (this.first) {
       this.last.next = node;
-      // 그 추가된 노드가 마지막 노드
       this.last = node;
-    } else { // 대기열의 노드가 없는 겨우
-      // 생성된 노드는 first(front)
+    } else {
       this.first = node;
-      // 또한 생성된 노드는 last(rear)가 됨.
       this.last = node;
     }
-    //그리고 길이 1 증가
+
     this.length++;
   }
 
@@ -57,11 +51,11 @@ class Queue {
 
     return temp.value;
   }
-  //front
+
   peek() {
     return this.first.value;
   }
-  //rear
+
   back() {
     return this.last.value;
   }
@@ -71,7 +65,6 @@ class Queue {
   }
 }
 
-// 입력을 담아둘 input 빈 배열로 생성
 let input = [];
 let queue = new Queue();
 let result = "";
@@ -98,7 +91,7 @@ rl.on("line", function (line) {
         break;
 
       case "empty":
-        result += (queue.count() === 0 ? 1 : 0) + "\n";
+        result += (queue.count() == 0 ? 1 : 0) + "\n";
         break;
 
       case "front":
