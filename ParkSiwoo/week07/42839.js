@@ -1,3 +1,4 @@
+// 소수찾기
 function solution(numbers) {
     const numArr = numbers.split("");
     const numLen = numArr.length;
